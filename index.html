@@ -51,6 +51,12 @@
             
             window.onload = function () {
                 document.getElementById("kimenet").innerText = bolcsessegek[Math.floor(Math.random() * bolcsessegek.length)];
+                var s = document.getElementById("share");
+                var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                s.setAttribute("style","visibility: hidden;");
+                if(isMobile) {
+                    s.setAttribute("style","visibility: visible;");
+                }
             }
             function bolcsesseg() {
                 document.getElementById("kimenet").innerText = bolcsessegek[Math.floor(Math.random() * bolcsessegek.length)];
@@ -59,10 +65,22 @@
                 var kimenet = document.getElementById("kimenet");
                 var copy = document.getElementById("copy");
                 navigator.clipboard.writeText(kimenet.innerText);
-                copy.innerText = "Szólás kimásolva";
+                copy.innerText = "Bölcsesség kimásolva";
                 setTimeout(function () {
-                    copy.innerText = "Szólás másolása";
-                }, 2000);
+                    copy.innerText = "Bölcsesség másolása";
+                }, 1250);
+            }
+            function share() {
+                var kimenet = document.getElementById("kimenet");
+                var copy = document.getElementById("copy");
+                try {
+                    navigator.share({
+                        title: "Bölcsesség",
+                        text: kimenet.innerText
+                    });
+                } catch(err) {
+                    alert("A megosztás sikertelen. Lehet, hogy a böngésző nem támogatja ezt a funkciót.");
+                }
             }
         </script>
         <style>
@@ -85,7 +103,11 @@
                 
             }
             
-            #copy {
+            #share {
+                margin-top: 20px;
+            }
+            
+            .copy_share {
                 padding: 5px;
                 font-size: 10px;
                 margin-left: 50px;
@@ -122,7 +144,8 @@
             </center>
             <div class="button" id="rand" onclick="bolcsesseg()">Random bölcsesség</div>
             <div class="felso" id="kimenet"><br><br></div>
-            <div class="button" id="copy" onclick="copy()">Bölcsesség másolása</div>
+            <div class="button copy_share" id="copy" onclick="copy()">Bölcsesség másolása</div>
+            <div class="button copy_share" id="share" onclick="share()">Bölcsesség megosztása</div>
         </div>
     </body>
 </html>
