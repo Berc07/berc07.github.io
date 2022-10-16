@@ -1,151 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Bölcs weboldal</title>
-        <script>
-            const db_version = "1.0.0";
-            
-            var bolcsessegek = ["Aczél anyának tűzkő a leánya.",
-            "Addig a barátság, míg zsíros a konyha.",
-            "Addig a békesség, míg a szomszéd akarja.",
-            "Addig hajlítsd a fát, míg vessző.",
-            "Addig jár a korsó a kútra, míg el nem törik.",
-            "Addig járt a maga esze után, míg nekiment a falnak.",
-            "Addig hántsd a hársfát, míg hámlik.",
-            "Addig marad távol a háztól, míg pogácsája tart.",
-            "Addig megyek, míg szememmel látok.",
-            "Addig nyalta-falta, míg elcsábította.",
-            "A kevesebb több.",
-            "Addig nyujtózkodjál, meddig a takaród ér.",
-            "Addig üsd a vasat, míg meleg.",
-            "Addig élsz, míg meg nem halsz.",
-            "Adós fizess, beteg nyögj.",
-            "Ajándék csikónak nem nézik a fogát. ",
-            "Ajándék lónak nem kell csikófogát nézni.",
-            "Akkor drága az egészség, mikor meglep a betegség.",
-            "Akkor keres puskát, mikor a varjú elrepült.",
-            "Akkor vet lakatot az istállóra, mikor már lovát kilopták.",
-            "Ki korán kel, aranyat lel.",
-            "Kinek vaj van a fején, ne menjen napra!",
-            "Ki másnak vermet ás, maga esik bele.",
-            "Okos enged, szamár szenved!",
-            "Egyik tizenkilenc, a másik egy híján húsz!",
-            "Egyik kutya, másik eb.",
-            "Amilyen az adjonisten, olyan a fogadjisten!",
-            "Amilyen a mosdó, olyan a törölköző!",
-            "Nem mind barátod, aki rád mosolyog!",
-            "Mit ma nem tanul meg Jancsi, nem tudja azt majdan János!",
-            "Egy fecske nem csinál nyarat.",
-            "Krisztus koporsóját se őrzik ingyen.",
-            "Ajándék marhának nem köll szarvát nézni.",
-            "Három napi dínom-dánom, hótig való szánom-bánom.",
-            "Kerülgeti mint macska a forró kását.",
-            "Okos embörnek, mestör a neve.",
-            "Ne igyál előre a medve bőrére!",
-            "Ki fél a víztől, nem eszik halat!",
-            "Bolond lyukból bolond szél fúj.",
-            "Nem minden arany, ami fénylik.",
-            "Éhes disznó makkal álmodik.",
-            "Madarat tolláról, embert barátjáról."];
-            
-            window.onload = function () {
-                document.getElementById("kimenet").innerText = bolcsessegek[Math.floor(Math.random() * bolcsessegek.length)];
-                var s = document.getElementById("share");
-                var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                s.setAttribute("style","visibility: hidden;");
-                if(isMobile) {
-                    s.setAttribute("style","visibility: visible;");
-                }
-            }
-            function bolcsesseg() {
-                document.getElementById("kimenet").innerText = bolcsessegek[Math.floor(Math.random() * bolcsessegek.length)];
-            }
-            function copy() {
-                var kimenet = document.getElementById("kimenet");
-                var copy = document.getElementById("copy");
-                navigator.clipboard.writeText(kimenet.innerText);
-                copy.innerText = "Bölcsesség kimásolva";
-                setTimeout(function () {
-                    copy.innerText = "Bölcsesség másolása";
-                }, 1250);
-            }
-            function share() {
-                var kimenet = document.getElementById("kimenet");
-                var copy = document.getElementById("copy");
-                try {
-                    navigator.share({
-                        title: "Bölcsesség",
-                        text: kimenet.innerText
-                    });
-                } catch(err) {
-                    alert("A megosztás sikertelen. Lehet, hogy a böngésző nem támogatja ezt a funkciót.");
-                }
-            }
-        </script>
+        <title>Projektek</title>
         <style>
-            
-            .button {
-                border: 1px solid #000;
-                box-shadow: 2px 2px 2px #999;
-                background: #aaa;
-                user-select: none;
-                border-radius: 10px;
-                padding: 20px;
-            }
-            
             body {
-                align-items: center;
-                background: #FFF;
                 text-align: center;
-                font-family: Monospace;
-                font-size: 20px;
-                
             }
             
-            #share {
-                margin-top: 20px;
+            a {
+                margin-top: 100px;
+                text-decoration: none;
+                color: #555555;
             }
             
-            .copy_share {
-                padding: 5px;
-                font-size: 10px;
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-            
-            #kimenet {
-                margin-bottom: 20px;
-            }
-            
-            #rand {
-                margin-top: 40px;
-                margin: 20px;
-                margin-bottom: 40px;
-            }
-            
-            #cim {
-                border: #000 1px solid;
-                align-self: center;
-                background: #FFF;
-                text-align: center;
-                justify-content: center;
-                padding: 10px;
-                margin-bottom: 50px;
-                box-shadow: 10px 10px 10px #000;
-                margin: 20px;
+            #list {
+                list-style-type: none;
             }
         </style>
     </head>
     <body>
-        <div>
-            <center id="cim">
-                <h2>BÖLCSESSÉGEK</h2>
-            </center>
-            <div class="button" id="rand" onclick="bolcsesseg()">Random bölcsesség</div>
-            <div class="felso" id="kimenet"><br><br></div>
-            <div class="button copy_share" id="copy" onclick="copy()">Bölcsesség másolása</div>
-            <div class="button copy_share" id="share" onclick="share()">Bölcsesség megosztása</div>
-        </div>
+        <a href="/bolcs/index.html">Bölcsesség generátor</a>
     </body>
 </html>
