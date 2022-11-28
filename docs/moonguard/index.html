@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>MoonGuard dokumentáció</title>
+        <style>
+            code {
+                border-radius: 3px;
+                background: #ddd;
+                padding: 2px;
+                border: #ccc solid;
+            }
+            p {
+                margin-top: 5px;
+            }
+            
+            h2 {
+                margin-bottom: 4px;
+            }
+            
+            span {
+                color: #f00;
+                font-weight: 1000;
+            }
+            
+            h1 {
+                padding-bottom: 10px;
+                border-bottom: 2px solid;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MoonGuard dokumentáció</h1>
+        
+        <h2>Chat cenzor:</h2>
+        <p>Ha egy játékos káromkodik a chat-ben, akkor
+        a MoonGuard *-okkal helyettesíti.</p>
+        <p>A MoonGuard figyelembe veszi a betűk külömböző variációit, pl.: az
+        &quot;a&quot; betű helyett a @ jelet is.</p>
+        <p>Tehát, ha a lista tartalmazza az 
+        &quot;alma&quot; szót (egyébként nem tartalmazza), akkor
+        a program figyelembe veszi a következő szavakat is:
+        <li><span>alma</span> &rarr; ****</li>
+        <li><span>AlMa</span> &rarr; ****</li>
+        <li><span>@lmA</span> &rarr; ****</li>
+        <li><span>a l m a</span>  &rarr; ****</li>
+        <li>Az <span>alma</span> leesett a fáról. &rarr; 
+        Az **** leesett a fáról.</li>
+        <li>qdzdz<span>alma</span>gslsh &rarr; qdzdz****gslsh</li></p>
+        <p>A lista szerkeszthető a következő módon:</p>
+        <code>&nbsp;/censor add <i>&lt;szó&gt;</i>&nbsp;</code>
+        <p>A listához ad egy szót.</p>
+        <code>&nbsp;/censor remove <i>&lt;szó&gt;</i>&nbsp;</code>
+        <p>Elvesz a listából egy szót.</p>
+        
+        <h2>Anti spam:</h2>
+        <p>Ha egy játékos 6mp alatt 3-nál több üzenetet 
+        küld, akkor a MoonGuard némítja a játékost 2mp-re.</p>
+        <p>Ha a némítás ideje alatt a játékos tovább próbálkozik, 
+        akkor a némítás ideje üzenetenként 2 másodperccel növekszik.</p>
+        
+        <h2>Anti Caps:</h2>
+        <p>Minden üzenetet automatikusan kis betűre cserél.</p>
+    </body>
+</html>
