@@ -1,37 +1,212 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Berc07 weboldala</title>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8490921471834441"
-    crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+        <title>Főoldal - berc07.github.io</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8490921471834441" crossorigin="anonymous"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            
+            ::selection {
+                background: #3a37;
+            }
 
-        :root {
-            --text-color: #fff;
-            --font: Roboto sans-serif;
-            --bg: radial-gradient(rgb(0, 29, 217),rgb(0, 19, 143));
+            :root {
+                --weight: 600;
+                --bgcolorI: #0f7;
+                --bgcolorII: #29b;
+            }
+
+            [data-mobile="false"] {
+                --weight: 500;
+            }
+
+            h1,h2,h3,h4,h5,li,b {
+                font-weight: var(--weight);
+            }
+
+            body {
+                font-family: 'Rubik';
+                margin: 0;
+                text-align: center;
+                background: linear-gradient(var(--bgcolorI),var(--bgcolorII));
+                background-attachment: absolute;
+                min-height: 100vh;
+            }
+
+            #fooldal a {
+                margin-top: 100px;
+                text-decoration: underline;
+                color: #333;
+            }
+            
+            #header {
+                padding: 20px;
+                border-radius: 0px;
+                padding-bottom: 10px;
+                position: relative;
+            }
+            
+            #fooldal {
+                margin: 1vw;
+                text-align: left;
+            }
+            
+            #logo {
+                position: fixed;
+                width: 5mm;
+                height: 5mm;
+                right: 5.75mm;
+                top: 5.75mm;
+                user-select: none;
+                pointer-events: none;
+            }
+            
+            #nav {
+                z-index: 1000;
+                border-radius: 2mm;
+                right: 3mm;
+                top: 3mm;
+                border: 1px solid;
+                width: 10mm;
+                height: 10mm;
+                position: fixed;
+                cursor: pointer;
+                background: radial-gradient(var(--bgcolorII),var(--bgcolorI));
+            }
+            
+            #nav-menu {
+                left: 100%;
+                z-index: 1001;
+                position: fixed;
+                background: #fff0;
+                border-left: 1px solid;
+                height: 100%;
+                width: 7cm;
+                transition: .5s;
+                text-align: center;
+                padding-top: 1cm;
+                user-select: none;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(50px);
+            }
+            
+            #nav-menu #last {
+                border-bottom: 0px;
+            }
+            
+            h2 {
+                margin-bottom: 5px;
+                color: #555;
+                margin-left: 4mm;
+                margin-right: 4mm;
+            }
+            
+            #fooldal h4 {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            
+            ul,li {
+                margin-top: 5px;
+            }
+            
+            #close-menu {
+                width: 5mm;
+                height: 5mm;
+                position: fixed;
+                right: 5.75mm;
+                top: 5.75mm;
+                cursor: pointer;
+            }
+            
+            #close-menu img {
+                width: 5mm;
+                height: 5mm;
+            }
+            
+            h3,a,h4 {
+                margin-bottom: 5px;
+            }
+            
+            h4 {
+                margin-top: 5px;
+            }
+            
+            #nav-menu h4 {
+                cursor: pointer;
+                margin: 0;
+                padding: 10px;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                border-bottom: 1px solid;
+            }
+            .navlinks {
+                color: #000;
+                text-decoration: none;
+            }
+            #projectlista li {
+                margin-right: 20px;
+            }
+            
+        </style>
+        <script>
+        window.onload = function () {
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if(!isMobile) {
+                document.documentElement.setAttribute("data-mobile","false");
+            }
         }
 
-        a {
-            text-decoration: none;
-            transition: .4s;
+        function show() {
+            document.getElementById("nav-menu").style.left = "calc(100% - 7cm)";
         }
-        a:hover {
-            text-decoration: underline;
+        function hide() {
+            document.getElementById("nav-menu").style.left = "100%";
         }
-
-        h1 {
-            border-bottom: 2px solid #fff;
+        
+        function mousepos(e) {
+            e.clientX;
         }
-
-    </style>
+        </script>
     </head>
     <body>
-        <h1>Berc07 weboldala</h1>
-        <br>
-        <h2><a href="docs/moonguard">MoonGuard</a></h2>
+        <noscript>FIGYELEM! EZ A WEBOLDAL JAVASCRIPTET HASZNÁL! HA LE VAN TILTVA, MEGESHET, HOGY AZ OLDAL EGYES FUNKCIÓI NEM MŰKÖDNEK MEGFELELŐEN!!</noscript>
+        <div id="nav" onclick="show()">
+            <img id="logo" src="menu.svg">
+        </div>
+        <div id="nav-menu">
+            <div id="close-menu" onclick="hide()">
+                <img src="close.svg">
+            </div>
+            <h4><a class="navlinks" href="https://berc07.github.io/">Főoldal</a></h4>
+            <h4><a class="navlinks" href="https://www.spigotmc.org/members/berc07.1688133/">SpigotMC</a></h4>
+            <h4 id="last"><a class="navlinks" href="https://github.com/Berc07/">GitHub</a></h4>
+        </div>
+        <div onclick="hide()">
+            <div id="header">
+                <h1>Üdv</h1>
+                <h2 style="color: #000">
+                    Berc07 weboldalán
+                </h2>
+            </div>
+            <div id="fooldal">
+                <h2>Projektek</h2>
+                <ul id="projectlista">
+                    <h3><a href="/docs/moonguard">MoonGuard</a></h3>
+                    <h4>
+                        Magyar nyelvű chat moderátor
+                        Chat cenzor
+                        URL és IP cím szűrő
+                        Anti Spam
+                        Anti CapsLock
+                        Parancsok
+                        
+                        Bővebben:
+                        <a href="https://berc07.github.io/docs/moonguard/">Dokumentáció</a></h4>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
